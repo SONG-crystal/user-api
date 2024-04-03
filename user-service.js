@@ -39,11 +39,8 @@ module.exports.registerUser = function (userData) {
         if (userData.password != userData.password2) {
             reject("Passwords do not match");
         } else {
-
             bcrypt.hash(userData.password, 10).then(hash => {
-
                 userData.password = hash;
-
                 let newUser = new User(userData);
 
                 newUser.save().then(() => {
@@ -107,12 +104,8 @@ module.exports.addFavourite = function (id, favId) {
             } else {
                 reject(`Unable to update favourites for user with id: ${id}`);
             }
-
         })
-
     });
-
-
 }
 
 module.exports.removeFavourite = function (id, favId) {
